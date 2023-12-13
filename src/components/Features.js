@@ -2,9 +2,14 @@ import React from 'react'
 import styled from 'styled-components'
 import { polices } from '../untils/polices'
 import { colors } from '../untils/colors'
+import { allCover } from '../data'
+
+const Container = styled.div`
+  padding: 50px 0 60px 0;
+`
 
 const Title = styled.h3`
-  font-family: ${polices.aboutFont}!important;
+  font-family: ${polices.aboutFont};
   color: ${colors.aboutColor};
   text-transform: uppercase;
   font-weight: 400;
@@ -15,10 +20,12 @@ const Title = styled.h3`
 
   .all {
     color: ${colors.red};
+    font-family: ${polices.aboutFont};
   }
 
   .game {
     color: ${colors.violet};
+    font-family: ${polices.aboutFont};
   }
 `
 
@@ -32,10 +39,10 @@ const Paragraph = styled.p`
 function Features() {
   return (
     <React.Fragment>
-      <section>
-        <div className="container">
-          <div className="row">
-            <div className="col">
+      <section id="features">
+        <Container className="container">
+          <div className="row align-items-center">
+            <div className="col-6">
               <Title>
                 HERE IS <span className="all">ALL NEW</span>
                 <span className="game"> GAME</span> FEATURES
@@ -54,14 +61,10 @@ function Features() {
             </div>
 
             <div className="col">
-              <img
-                src="https://template.hasthemes.com/gilbard/gilbard/assets/images/feature/feature-1.png"
-                alt="about"
-                className="w-100"
-              />
+              <img src={allCover.featuresCover} alt="about" className="w-100" />
             </div>
           </div>
-        </div>
+        </Container>
       </section>
     </React.Fragment>
   )

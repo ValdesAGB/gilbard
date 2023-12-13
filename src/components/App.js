@@ -8,6 +8,12 @@ import Banner1 from './Banner1'
 import Installation from './Installation'
 import Newsletters from './Newsletters'
 import Testimonial from './Testimonial'
+import Home from './Home'
+import Download from './Download'
+import Gallery from './Gallery'
+import Footer from './Footer'
+import Navbar from './Navbar'
+import { ClickProvider, HeaderProvider } from '../untils/context'
 
 const GlobalStyle = createGlobalStyle`
 *{
@@ -23,14 +29,30 @@ function App() {
   return (
     <React.Fragment>
       <GlobalStyle />
-      <div className="row">
-        <About />
-        <Features />
-        <Banner1 />
-        <Installation />
-        <Newsletters />
-        <Testimonial />
-      </div>
+      <ClickProvider>
+        <HeaderProvider>
+          <Navbar />
+          <div
+            className="row scrollspy-example"
+            data-bs-spy="scroll"
+            data-bs-target="#navbar-example2"
+            data-bs-root-margin="0px 0px -40%"
+            data-bs-smooth-scroll="false"
+            tabIndex="0"
+          >
+            <Home />
+            <Download />
+            <About />
+            <Features />
+            <Banner1 />
+            <Gallery />
+            <Installation />
+            <Newsletters />
+            <Testimonial />
+            <Footer />
+          </div>
+        </HeaderProvider>
+      </ClickProvider>
     </React.Fragment>
   )
 }

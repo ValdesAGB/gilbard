@@ -5,6 +5,10 @@ import styled from 'styled-components'
 import { polices } from '../untils/polices'
 import { colors } from '../untils/colors'
 
+const Container = styled.div`
+  padding: 80px 0 0 0;
+`
+
 const Title = styled.h3`
   font-size: 36px;
   line-height: 40px;
@@ -13,9 +17,20 @@ const Title = styled.h3`
   color: ${colors.aboutColor};
   font-weight: 400;
   margin-top: 0;
+
+  .newsletter {
+    color: ${colors.red};
+    font-family: ${polices.aboutFont};
+  }
+
+  .lastest,
+  .video {
+    color: ${colors.violet};
+    font-family: ${polices.aboutFont};
+  }
 `
 
-const Container = styled.div`
+const Content = styled.div`
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: justify;
@@ -34,9 +49,10 @@ const TitleContainer = styled.div`
   padding: 60px 65px;
 `
 
-const ImgContainer = styled.div`
+const Cover = styled.div`
   margin-top: -55px;
   margin-bottom: -30px;
+  text-align: end;
 
   img {
     vertical-align: middle;
@@ -46,23 +62,24 @@ const ImgContainer = styled.div`
 function Newsletters() {
   return (
     <React.Fragment>
-      <section>
-        <div className="container">
-          <Container className="row">
+      <section id="newslatter">
+        <Container className="container">
+          <Content className="row">
             <TitleContainer className="col-7">
               <Title>
-                SUBSCRIBE OUR NEWSLETTER GET ALL LATEST NEWS, UPDATE, VIDEOS AND
-                OFFERS
+                SUBSCRIBE OUR <span className="newsletter">NEWSLETTER</span> GET
+                ALL <span className="lastest">LATEST</span> NEWS, UPDATE,
+                <span className="video"> VIDEOS</span> AND OFFERS
               </Title>
 
               <NewslettersForm />
             </TitleContainer>
 
-            <ImgContainer className="col">
+            <Cover className="col">
               <img src={allCover.newslatersCover} alt="newslatersCover" />
-            </ImgContainer>
-          </Container>
-        </div>
+            </Cover>
+          </Content>
+        </Container>
       </section>
     </React.Fragment>
   )

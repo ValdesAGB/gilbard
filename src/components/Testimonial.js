@@ -5,6 +5,10 @@ import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
 import Slider from 'react-slick'
 
+const Container = styled.div`
+  padding: 105px 0 75px 0;
+`
+
 const settings = {
   dots: false,
   infinite: true,
@@ -17,11 +21,14 @@ const TestimonialContainer = styled.div`
 cursor: grab;
   cursor: -moz-grab;
   cursor: -webkit-grab;
+  text-align: center;
+  
   &:active {
     cursor: grabbing;
     cursor: -moz-grabbing;
     cursor: -webkit-grabbing;
   }
+
   &::before {
     display: block;
     content: url(${allCover.testimonialCover});
@@ -29,7 +36,8 @@ cursor: grab;
     line-height: 1;
     margin-bottom: 20px;
   }
-  text-align: center;
+
+
 
   p {
     font-size: 18px;
@@ -66,11 +74,11 @@ function Testimonial() {
   return (
     <React.Fragment>
       <section>
-        <div className="container">
+        <Container className="container">
           <div>
             <Slider {...settings}>
               {testimonial.map(({ id, name, post }) => (
-                <TestimonialContainer id={id}>
+                <TestimonialContainer id={id} key={id}>
                   <p>
                     New features are now a vailable for Mega 2019 so one can
                     easily play the game more smoothly gue and tema sit
@@ -85,7 +93,7 @@ function Testimonial() {
               ))}
             </Slider>
           </div>
-        </div>
+        </Container>
       </section>
     </React.Fragment>
   )

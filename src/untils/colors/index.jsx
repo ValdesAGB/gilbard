@@ -5,4 +5,6 @@ export const colors = {
   violet: '#061da4',
   installationBuyBtnColor: '#ffffff',
   newslatersColor: '#6b6b6b',
+  downloadListHoverColor: '#0a58ca',
+  downloadListAfterAndBeforeColor: '#b4bbe4',
 }

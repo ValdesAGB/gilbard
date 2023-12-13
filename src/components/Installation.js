@@ -4,6 +4,14 @@ import { polices } from '../untils/polices'
 import { colors } from '../untils/colors'
 import { allCover } from '../data'
 
+const Container = styled.div`
+  padding: 80px 0 55px 0;
+`
+
+const Cover = styled.img`
+  width: 100%;
+`
+
 const Title = styled.h3`
   font-family: ${polices.aboutFont};
   color: ${colors.aboutColor};
@@ -16,10 +24,12 @@ const Title = styled.h3`
 
   .install {
     color: ${colors.red};
+    font-family: ${polices.aboutFont};
   }
 
   .easy {
     color: ${colors.violet};
+    font-family: ${polices.aboutFont};
   }
 `
 
@@ -57,15 +67,11 @@ const BUY = styled.a`
 function Installation() {
   return (
     <React.Fragment>
-      <section>
-        <div className="container">
-          <div className="row">
+      <section id="installation">
+        <Container className="container">
+          <div className="row align-items-center">
             <div className="col">
-              <img
-                src={allCover.installationCover}
-                alt="about"
-                className="w-100"
-              />
+              <Cover src={allCover.installationCover} alt="about" />
             </div>
             <div className="col">
               <Title>
@@ -83,7 +89,7 @@ function Installation() {
               <BUY href="#">BUY NOW</BUY>
             </div>
           </div>
-        </div>
+        </Container>
       </section>
     </React.Fragment>
   )
