@@ -22,6 +22,7 @@ const GlobalStyle = createGlobalStyle`
     visibility: visible;
     font-family:${polices.main};
     color: ${colors.main};
+    transition: all 0.3s ease 0s;
 }
 `
 
@@ -32,7 +33,7 @@ function App() {
       <ClickProvider>
         <HeaderProvider>
           <Navbar />
-          <div
+          <main
             className="row scrollspy-example"
             data-bs-spy="scroll"
             data-bs-target="#navbar-example2"
@@ -50,7 +51,7 @@ function App() {
             <Newsletters />
             <Testimonial />
             <Footer />
-          </div>
+          </main>
         </HeaderProvider>
       </ClickProvider>
     </React.Fragment>
@@ -58,3 +59,29 @@ function App() {
 }
 
 export default App
+
+/**
+ * 
+ * 
+ * 
+ *  
+ * 
+ * 
+ * 
+ *  
+          
+           
+            
+            
+       
+          
+            
+            
+
+
+           
+ * 
+ * 
+ * 
+ * 
+ */

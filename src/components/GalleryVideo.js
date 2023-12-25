@@ -1,6 +1,8 @@
 import React from 'react'
 import { AllBackgroundCover } from '../data'
 import styled, { keyframes } from 'styled-components'
+import { colors } from '../untils/colors'
+import { polices } from '../untils/polices'
 
 const BtnVideoAnimation = keyframes`
 0% {
@@ -21,8 +23,17 @@ const VideoContainer = styled.div`
   display: flex;
   align-items: center;
   position: relative;
-  background-color: #061da4;
-  border-right: 3px solid #ffffff;
+  background-color: ${colors.violet};
+  border-right: 3px solid ${colors.installationBuyBtnColor};
+
+  @media (max-width: 767px) {
+    display: block;
+    border: 0;
+  }
+
+  @media (min-width: 576px) and (max-width: 767px) {
+    margin-top: 0.5rem;
+  }
 
   .watch {
     background-image: url(${AllBackgroundCover.galleryBgCover});
@@ -30,20 +41,44 @@ const VideoContainer = styled.div`
     background-repeat: no-repeat;
     background-size: cover;
     padding: 145px 65px;
-    color: #ffffff;
-    padding: 15px 30px;
+    color: ${colors.installationBuyBtnColor};
+   
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: 1fr;
 
+
+    @media (max-width: 1499px) {
+      padding: 15px 30px;
+    }
+
+    padding: 145px 65px;
+
+
     h2 {
-      font-size: 34px;
-      line-height: 40px;
+      font-size: 45px;
+      line-height: 52px;
       max-width: 305px;
       text-align: left;
-      color: #ffffff;
-      text-shadow: -4px 2px 1px #252525;
-      font-family: 'Nova Round', cursive;
+      color: ${colors.installationBuyBtnColor};
+      text-shadow: -4px 2px 1px ${colors.aboutColor};
+      font-family: ${polices.aboutFont};
+
+      @media (max-width: 767px) {
+        font-size: 36px;
+        line-height: 46px;
+      }
+
+      @media (min-width: 768px) and (max-width: 1199px) {
+        font-size: 30px;
+        line-height: 36px;
+      }
+
+      @media (min-width: 1200px) and (max-width: 1499px) {
+        font-size: 34px;
+        line-height: 40px;
+    }
+      }
     }
   }
 
@@ -57,7 +92,7 @@ const VideoContainer = styled.div`
       left: 0;
       width: 100%;
       height: 100%;
-      background-color: rgba(0, 0, 0, 0.4);
+      background-color: ${colors.videoBgColor};
     }
 
     a {
@@ -67,7 +102,7 @@ const VideoContainer = styled.div`
       z-index: 9;
       font-size: 24px;
       line-height: 52px;
-      color: #ffffff;
+      color: ${colors.installationBuyBtnColor};
 
       display: inline-block;
 

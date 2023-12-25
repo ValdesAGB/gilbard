@@ -6,10 +6,18 @@ import { allCover } from '../data'
 
 const Container = styled.div`
   padding: 80px 0 55px 0;
+
+  @media (max-width: 767px) {
+    padding-bottom: 50px;
+  }
 `
 
 const Cover = styled.img`
   width: 100%;
+
+  @media (max-width: 767px) {
+    margin-bottom: 30px;
+  }
 `
 
 const Title = styled.h3`
@@ -31,14 +39,32 @@ const Title = styled.h3`
     color: ${colors.violet};
     font-family: ${polices.aboutFont};
   }
+
+  @media (max-width: 479px) {
+    font-size: 24px;
+    line-height: 34px;
+  }
+
+  @media (min-width: 480px) and (max-width: 767px) {
+    font-size: 30px;
+  }
 `
 
 const Paragraph = styled.p`
   font-size: 20px;
-  line-height: 28px;
-  margin-bottom: 20px;
+  line-height: 26px;
+  margin-bottom: 1rem;
   max-width: 530px;
   font-weight: 400;
+  transition: all 0.3s ease 0s;
+
+  @media (max-width: 767px) {
+    font-size: 16px;
+  }
+
+  @media (min-width: 768px) and (max-width: 991px) {
+    font-size: 18px;
+  }
 `
 
 const BUY = styled.a`
@@ -62,6 +88,13 @@ const BUY = styled.a`
   &:hover {
     background-color: ${colors.red};
   }
+
+  @media (max-width: 767px) {
+    font-size: 14px;
+    line-height: 30px;
+    height: 45px;
+    padding: 10px 25px;
+  }
 `
 
 function Installation() {
@@ -70,7 +103,7 @@ function Installation() {
       <section id="installation">
         <Container className="container">
           <div className="row align-items-center">
-            <div className="col">
+            <div className="col-12 col-md">
               <Cover src={allCover.installationCover} alt="about" />
             </div>
             <div className="col">
@@ -78,7 +111,7 @@ function Installation() {
                 IT’S SIMPLE <span className="install">TO INSTALL</span>{' '}
                 <span className="easy">EASY</span> FOR YOU TO PLAY...
               </Title>
-              <Paragraph between>
+              <Paragraph>
                 All football leagues have been added also you can create your
                 own Leagues.
               </Paragraph>

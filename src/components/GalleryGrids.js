@@ -5,6 +5,10 @@ import { galleryCover } from '../data'
 const CoverContainer = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
+
+  @media (max-width: 767px) {
+    grid-template-columns: 1fr;
+  }
 `
 const Cover = styled.img`
   width: 100%;
@@ -35,7 +39,7 @@ function GalleryGrids() {
           aria-labelledby="exampleModalLabel"
           aria-hidden="true"
         >
-          <div className="modal-dialog">
+          <div className="modal-dialog  modal-dialog-centered">
             <img src={cover && cover.src} alt={cover && cover.id} />
           </div>
         </div>

@@ -3,6 +3,7 @@ import styled, { keyframes } from 'styled-components'
 import { logo, menu } from '../data'
 import { colors } from '../untils/colors'
 import { ClickContext, HeaderContext } from '../untils/context'
+import { polices } from '../untils/polices'
 
 const slideDownAnimation = keyframes`
 from {
@@ -15,13 +16,21 @@ to {
 
 const ContainerMenu = styled.div`
   display: block;
+
+  @media (max-width: 1199px) {
+    padding: 10px;
+    margin-top: 20px;
+    background-color: ${colors.navbarBgColor};
+  }
 `
 
 const MenuContainer = styled.ul`
   list-style: outside none none;
-  margin: 0;
-  padding: 0;
-  display: flex;
+  margin-right: auto;
+  margin-bottom: 8px;
+  @media (min-width: 992px) {
+    margin-bottom: 0;
+  }
 `
 
 const MenuItems = styled.li`
@@ -35,24 +44,15 @@ const MenuLinks = styled.a`
   font-size: 20px;
   font-weight: 400;
   letter-spacing: 0.25px;
-  font-family: 'Nova Round', cursive;
-  color: #ffffff;
+  font-family: ${polices.aboutFont};
+  color: ${colors.installationBuyBtnColor};
   display: block;
   position: relative;
   text-transform: capitalize;
   transition: all 0.3s ease 0s;
   text-decoration: none;
   cursor: pointer;
-  background-color: ${(props) => props.id === 6 && '#061da4'};
-
-  .nav-pills {
-    --bs-nav-pills-link-active-bg: transparent;
-  }
-
-  .navbar-nav .nav-link.active,
-  .navbar-nav .nav-link.show {
-    color: ${colors.red};
-  }
+  background-color: ${(props) => props.id === 6 && colors.violet};
 
   &:hover {
     color: ${(props) => (props.id !== 6 ? colors.red : 'white')};
@@ -62,9 +62,14 @@ const MenuLinks = styled.a`
   &:focus {
     color: ${(props) => (props.id !== 6 ? colors.red : 'white')};
   }
+
+  @media (max-width: 1199px) {
+    text-align: ${(props) => props.id === 6 && 'center'};
+  }
 `
 
 function Navbar() {
+  const { handleClick } = useContext(ClickContext)
   const { onTop } = useContext(HeaderContext)
 
   const Header = styled.header`
@@ -75,37 +80,43 @@ function Navbar() {
     top: 0;
 
     animation: ${slideDownAnimation} 0.8s ease-in-out;
-    background-color: ${onTop ? 'transparent' : '#081b1f'};
+    background-color: ${onTop ? 'transparent' : colors.navbarBgColor};
   `
-  const { handleClick } = useContext(ClickContext)
+
+  const ToogleBtn = styled.button`
+    border: none;
+    i {
+      font-size: 2rem;
+      color: white;
+    }
+  `
 
   return (
     <React.Fragment>
       <Header className="row">
         <div>
           <div className="container">
-            <nav className="navbar navbar-expand-lg row ">
+            <nav className="navbar navbar-expand-xl">
               <div className="container-fluid">
                 <a className="navbar-brand col-3 align-items-center" href="#">
                   <img src={logo.white} alt="logo" />
                 </a>
-                <button
+                <ToogleBtn
                   className="navbar-toggler"
-                  type="button"
                   data-bs-toggle="collapse"
                   data-bs-target="#navbarSupportedContent"
                   aria-controls="navbarSupportedContent"
                   aria-expanded="false"
                   aria-label="Toggle navigation"
                 >
-                  <span className="navbar-toggler-icon"></span>
-                </button>
+                  <i className="bi bi-list" />
+                </ToogleBtn>
                 <div
-                  className="collapse navbar-collapse nav-pills d-flex col-9 align-items-center justify-content-end"
+                  className="collapse navbar-collapse col-9 align-items-center justify-content-end"
                   id="navbarSupportedContent"
                 >
                   <ContainerMenu>
-                    <MenuContainer className="navbar-nav me-auto mb-2 mb-lg-0">
+                    <MenuContainer className=" navbar-nav">
                       {menu.map(({ id, name, link }) => (
                         <MenuItems className="nav-item" key={id} id={id}>
                           <MenuLinks

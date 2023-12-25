@@ -4,6 +4,8 @@ import styled from 'styled-components'
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
 import Slider from 'react-slick'
+import { polices } from '../untils/polices'
+import { colors } from '../untils/colors'
 
 const Container = styled.div`
   padding: 105px 0 75px 0;
@@ -15,6 +17,7 @@ const settings = {
   speed: 500,
   slidesToShow: 1,
   slidesToScroll: 1,
+  arrows: false,
 }
 
 const TestimonialContainer = styled.div`
@@ -37,6 +40,21 @@ cursor: grab;
     margin-bottom: 20px;
   }
 
+  @media (max-width:575px){
+    padding : 0 50px;
+  }
+
+  @media (min-width:576px) and (max-width:767px){
+    padding : 0 40px;
+  }
+
+  @media (min-width:768px) and (max-width:991px){
+    padding : 0 50px;
+  }
+
+ 
+
+
 
 
   p {
@@ -46,24 +64,34 @@ cursor: grab;
     max-width: 670px;
     margin: 0 auto;
     margin-bottom: 25px;
+
+    @media (max-width:767px){
+      font-size: 16px;
+      line-height: 26px;
+      margin-bottom: 15px;
+    }
   }
+
+
 
   h4 {
     font-size: 20px;
-    color: #f64140;
+    color: ${colors.red};
     margin-bottom: 8px;
-    font-family: 'Ubuntu', sans-serif;
+    font-family: ${polices.main};
     font-style: italic;
     font-weight: 400;
     margin-top: 0;
     line-height: 1.2;
   }
 
+
+
   span{
     font-size: 18px;
     line-height: 30px;
     display: block;
-    color: #151515;
+    color: ${colors.main};
     font-style: italic;
     transition: all 0.3s ease 0s;
   }
